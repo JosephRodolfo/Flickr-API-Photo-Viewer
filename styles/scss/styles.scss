@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+img {
+  background-color: blue;
+  grid-column: span 4;
+  overflow-x: hidden;
+  height: auto;
+  max-width: 100%;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+#grid-image-container {
+  grid-template-columns: repeat(12, 3em);
+  display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
+  gap: 10px;
+}
+
+
+#overlay-container {
+
+    opacity: 0;
+    z-index: -32;
+    
+}

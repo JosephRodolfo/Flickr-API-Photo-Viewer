@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flickr API Photo Viewer</title>
+    <link rel="stylesheet" href="styles/css/styles.css" />
+  </head>
+  <body>
+      
+    <section id="grid-image-container">
+
+        <!--
+        <img
+        src="https://live.staticflickr.com/7404/14176128353_6e4951babf.jpg"
+      /><img
+        src="https://live.staticflickr.com/5114/14156073025_e93a26d5eb.jpg"
+      /><img
+        src="https://live.staticflickr.com/7389/14152727021_38ac1f3e39.jpg"
+      /><img
+        src="https://live.staticflickr.com/2905/13969429938_841374305a.jpg"
+      /><img
+        src="https://live.staticflickr.com/5569/14176133323_6edfee8c04.jpg"
+      /><img
+        src="https://live.staticflickr.com/7324/13969432538_ced0b6ebaf.jpg"
+      /><img
+        src="https://live.staticflickr.com/7351/14152731901_da40421a0f.jpg"
+      /><img
+        src="https://live.staticflickr.com/2928/13969431130_5b4b4ea281.jpg"
+      /><img
+        src="https://live.staticflickr.com/7328/14153250982_933a3c698f.jpg"
+      /><img
+        src="https://live.staticflickr.com/7378/13969400147_c5d1f79f5e.jpg"
+      /><img
+        src="https://live.staticflickr.com/2930/14176139233_566d3e93b5.jpg"
+      />
+      <img
+      src="https://live.staticflickr.com/7404/14176128353_6e4951babf.jpg"
+    /><img
+      src="https://live.staticflickr.com/5114/14156073025_e93a26d5eb.jpg"
+    /><img
+      src="https://live.staticflickr.com/7389/14152727021_38ac1f3e39.jpg"
+    /><img
+      src="https://live.staticflickr.com/2905/13969429938_841374305a.jpg"
+    /><img
+      src="https://live.staticflickr.com/5569/14176133323_6edfee8c04.jpg"
+    /><img
+      src="https://live.staticflickr.com/7324/13969432538_ced0b6ebaf.jpg"
+    /><img
+      src="https://live.staticflickr.com/7351/14152731901_da40421a0f.jpg"
+    /><img
+      src="https://live.staticflickr.com/2928/13969431130_5b4b4ea281.jpg"
+    /><img
+      src="https://live.staticflickr.com/7328/14153250982_933a3c698f.jpg"
+    /><img
+      src="https://live.staticflickr.com/7378/13969400147_c5d1f79f5e.jpg"
+    /><img
+      src="https://live.staticflickr.com/2930/14176139233_566d3e93b5.jpg"
+    />
+    <img
+    src="https://live.staticflickr.com/7404/14176128353_6e4951babf.jpg"
+  /><img
+    src="https://live.staticflickr.com/5114/14156073025_e93a26d5eb.jpg"
+  /><img
+    src="https://live.staticflickr.com/7389/14152727021_38ac1f3e39.jpg"
+  /><img
+    src="https://live.staticflickr.com/2905/13969429938_841374305a.jpg"
+  /><img
+    src="https://live.staticflickr.com/5569/14176133323_6edfee8c04.jpg"
+  /><img
+    src="https://live.staticflickr.com/7324/13969432538_ced0b6ebaf.jpg"
+  /><img
+    src="https://live.staticflickr.com/7351/14152731901_da40421a0f.jpg"
+  /><img
+    src="https://live.staticflickr.com/2928/13969431130_5b4b4ea281.jpg"
+  /><img
+    src="https://live.staticflickr.com/7328/14153250982_933a3c698f.jpg"
+  /><img
+    src="https://live.staticflickr.com/7378/13969400147_c5d1f79f5e.jpg"
+  /><img
+    src="https://live.staticflickr.com/2930/14176139233_566d3e93b5.jpg"
+  />
+  <img
+  src="https://live.staticflickr.com/7404/14176128353_6e4951babf.jpg"
+/><img
+  src="https://live.staticflickr.com/5114/14156073025_e93a26d5eb.jpg"
+/><img
+  src="https://live.staticflickr.com/7389/14152727021_38ac1f3e39.jpg"
+/><img
+  src="https://live.staticflickr.com/2905/13969429938_841374305a.jpg"
+/><img
+  src="https://live.staticflickr.com/5569/14176133323_6edfee8c04.jpg"
+/><img
+  src="https://live.staticflickr.com/7324/13969432538_ced0b6ebaf.jpg"
+/><img
+  src="https://live.staticflickr.com/7351/14152731901_da40421a0f.jpg"
+/><img
+  src="https://live.staticflickr.com/2928/13969431130_5b4b4ea281.jpg"
+/><img
+  src="https://live.staticflickr.com/7328/14153250982_933a3c698f.jpg"
+/><img
+  src="https://live.staticflickr.com/7378/13969400147_c5d1f79f5e.jpg"
+/><img
+  src="https://live.staticflickr.com/2930/14176139233_566d3e93b5.jpg"
+/>
+<img
+src="https://live.staticflickr.com/7404/14176128353_6e4951babf.jpg"
+/><img
+src="https://live.staticflickr.com/5114/14156073025_e93a26d5eb.jpg"
+/><img
+src="https://live.staticflickr.com/7389/14152727021_38ac1f3e39.jpg"
+/><img
+src="https://live.staticflickr.com/2905/13969429938_841374305a.jpg"
+/><img
+src="https://live.staticflickr.com/5569/14176133323_6edfee8c04.jpg"
+/><img
+src="https://live.staticflickr.com/7324/13969432538_ced0b6ebaf.jpg"
+/><img
+src="https://live.staticflickr.com/7351/14152731901_da40421a0f.jpg"
+/><img
+src="https://live.staticflickr.com/2928/13969431130_5b4b4ea281.jpg"
+/><img
+src="https://live.staticflickr.com/7328/14153250982_933a3c698f.jpg"
+/><img
+src="https://live.staticflickr.com/7378/13969400147_c5d1f79f5e.jpg"
+/><img
+src="https://live.staticflickr.com/2930/14176139233_566d3e93b5.jpg"
+/>
+      
+      -->
+      
+    </section>
+    <div id="overlay-container">
+        
+    </div>
+
+    <!--<section id="grid-image-container">   
+
+</section> -->
+  </body>
+  <script type="text/javascript" src="config.js"></script>
+  <script type="module" src="app.js"></script>
+
+</html>
