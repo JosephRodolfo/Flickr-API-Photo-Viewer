@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+p {
+  font-family: sans-serif;
+}
+
 $grid-gap: 0.75em;
 $button-gray: #d8d8d8;
 $button-gray-hover: #a9a9a9;
@@ -26,10 +30,14 @@ $button-gray-hover: #a9a9a9;
 nav {
   width: 100%;
   position: fixed;
-  height: 3em;
+  height: min-content;
   top: 0;
   background-color: $button-gray;
   z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 
   ul {
     width: 100%;
@@ -45,6 +53,11 @@ nav {
   }
 }
 
+button[type="submit"] {
+
+  padding: 1em;
+  border: 1px solid black;
+}
 .arrows img {
   height: 3em;
 }
@@ -87,6 +100,11 @@ img {
     background-color: $button-gray;
     width: 20em;
     position: static;
+  }
+
+  input {
+    width: 8em;
+    min-width: 5em;
   }
 
   #page-numbers-container {
@@ -160,7 +178,7 @@ img {
   @mixin picture-expand-styles($percentage) {
     width: 36em;
     max-width: 36em;
-    z-index: 2;
+    z-index: 7;
     transform: translate($percentage, 0);
   }
   .overlay-img-style-1 {
