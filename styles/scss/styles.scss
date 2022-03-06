@@ -8,8 +8,8 @@
 }
 
 $grid-gap: 0.75em;
-$button-gray:  #d8d8d8;
-$button-gray-hover:  #a9a9a9;
+$button-gray: #d8d8d8;
+$button-gray-hover: #a9a9a9;
 
 @mixin flex-center {
   display: flex;
@@ -19,10 +19,8 @@ $button-gray-hover:  #a9a9a9;
 }
 
 @mixin horizontal-list {
-
   display: flex;
   flex-direction: row;
-
 }
 
 nav {
@@ -32,28 +30,27 @@ nav {
   top: 0;
   background-color: $button-gray;
   z-index: 6;
-   
+
   ul {
     width: 100%;
     height: 100%;
     @include horizontal-list;
     justify-content: space-between;
-align-items: center;
+    align-items: center;
     li {
       list-style: none;
       @include flex-center;
       height: 100%;
     }
-
-
   }
 }
 
-.arrows img {height: 3em;}
+.arrows img {
+  height: 3em;
+}
 #page-numbers-container {
   display: none;
 }
-
 
 body {
   width: 100%;
@@ -77,128 +74,106 @@ img {
   margin: 1em;
 }
 
-
-
-
 @media screen and (min-width: 750px) {
-  
-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
-}  
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
 
-nav {
-  height: 100%;
-  background-color: $button-gray;
-  width: 20em;
-  position: static;
-}
-
-#page-numbers-container {
-  min-width: 10em;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  div {
-    font-family: sans-serif;
-    min-height: 2.5em;
-    min-width: 2.5em;
-    flex-grow: 1;
-    @include flex-center;
+  nav {
+    height: 100%;
     background-color: $button-gray;
+    width: 20em;
+    position: static;
+  }
 
-    &:last-of-type{
-
+  #page-numbers-container {
+    min-width: 10em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    div {
+      font-family: sans-serif;
+      min-height: 2.5em;
+      min-width: 2.5em;
       flex-grow: 1;
+      @include flex-center;
+      background-color: $button-gray;
+
+      &:last-of-type {
+        flex-grow: 1;
+      }
+      &:hover {
+        background-color: $button-gray-hover;
+        cursor: pointer;
+      }
     }
-    &:hover {
-      background-color: $button-gray-hover;
-      cursor: pointer;
   }
-  
+
+  section > img {
+    width: 100%;
+
+    grid-column: span 4;
+    height: auto;
+    max-width: 15em;
+    transition: all 2s;
   }
-}
 
-
-
-
-section >img {
-  width: 100%;
-
-  grid-column: span 4;
-  height: auto;
-  max-width: 15em;
-  transition: all 2s;
-
-
-
-}
-
-img:hover {
-  cursor: pointer;
-  /*  width: 44em;
+  img:hover {
+    cursor: pointer;
+    /*  width: 44em;
   max-width: 44em;
   z-index: 2;
   grid-column: span 12;*/
-}
+  }
 
-#grid-image-container {
-  grid-template-columns: repeat(12, 1fr);
-  display: grid;
-  grid-auto-rows: minmax(min-content, max-content);
-  gap: $grid-gap;
-  max-width: 36em;
-  width: 100%;
-}
+  #grid-image-container {
+    grid-template-columns: repeat(12, 1fr);
+    display: grid;
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: $grid-gap;
+    max-width: 36em;
+    width: 100%;
+  }
 
-.overlay-container {
-  height: 0%;
-  width: 0%;
-  z-index: -1;
-  transition: opacity 1s;
-}
+  .overlay-container {
+    height: 0%;
+    width: 0%;
+    z-index: -1;
+    transition: opacity 1s;
+  }
 
-.overlay-on {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: lightgray;
-  opacity: 0.5;
-  z-index: 1;
-}
+  .overlay-on {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+    opacity: 0.5;
+    z-index: 1;
+  }
 
-@mixin picture-expand-styles {
-  width: 36em;
-  max-width: 36em;
-  z-index: 2;
-}
-.overlay-img-style-1 {
+  @mixin picture-expand-styles($percentage) {
+    width: 36em;
+    max-width: 36em;
+    z-index: 2;
+    transform: translate($percentage, 0);
+  }
+  .overlay-img-style-1 {
+    @include picture-expand-styles(0%);
+  }
 
-  transform: translate(0, 0);
+  .overlay-img-style-2 {
+    @include picture-expand-styles(-33.3333333333333%);
+  }
 
-@include picture-expand-styles;
-}
-
-.overlay-img-style-2 {
-
-  transform: translate(-33.33333333333%, 0);
-
-  @include picture-expand-styles;
-
-}
-
-.overlay-img-style-3 {
-  transform: translate(-66.666666666%, 0);
-
-  @include picture-expand-styles;
-
-}
-
+  .overlay-img-style-3 {
+    @include picture-expand-styles(-66.666666666%);
+  }
 }
 
 button {
@@ -208,5 +183,5 @@ button {
   &:hover {
     background-color: $button-gray-hover;
     cursor: pointer;
-}
+  }
 }

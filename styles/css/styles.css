@@ -149,24 +149,24 @@ img {
   }
 
   .overlay-img-style-1 {
-    transform: translate(0, 0);
     width: 36em;
     max-width: 36em;
     z-index: 2;
+    transform: translate(0%, 0);
   }
 
   .overlay-img-style-2 {
-    transform: translate(-33.3333333333%, 0);
     width: 36em;
     max-width: 36em;
     z-index: 2;
+    transform: translate(-33.3333333333%, 0);
   }
 
   .overlay-img-style-3 {
-    transform: translate(-66.666666666%, 0);
     width: 36em;
     max-width: 36em;
     z-index: 2;
+    transform: translate(-66.666666666%, 0);
   }
 }
 button {
