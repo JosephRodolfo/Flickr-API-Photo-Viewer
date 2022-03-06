@@ -2,7 +2,7 @@ var apiKey = config.YOUR_API_KEY;
 
 let currentPageNumber = {
   page: 1,
-  currentUserId: '75430200%40N04'
+  currentUserId: "75430200%40N04",
 };
 
 //async function, takes the desired page number returns list of photos with information needed to create src to display them,
@@ -13,7 +13,9 @@ async function getImageList(pageNumber, userIdNumber) {
   const response = await fetch(
     "https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=" +
       apiKey +
-      "&user_id=" + userIdNumber + "&page=" + //75430200%40N04
+      "&user_id=" +
+      userIdNumber +
+      "&page=" + //75430200%40N04
       pageNumber +
       "&format=json&nojsoncallback=1"
   );
@@ -23,9 +25,7 @@ async function getImageList(pageNumber, userIdNumber) {
   printPageNumbers(flickrObjectResponse.photos.pages, userIdNumber);
 
   let sliced = flickrObjectResponse.photos.photo.slice(0, 10);
-  
-  
-  
+
   return sliced;
 }
 
@@ -44,31 +44,43 @@ function createAndAppend(imgSrc) {
   imageContainer.appendChild(imgHolder);
 }
 
-//function that is called when pressing arrow buttons or number buttons to select or move between pages and when 
+//function that is called when pressing arrow buttons or number buttons to select or move between pages and when
 //starting program
 function updateImages(pageNumberInput, userId) {
   let gridImageContainer = document.getElementById("grid-image-container");
-  gridImageContainer.innerHTML = "";
+  //  gridImageContainer.innerHTML = "";
 
   getImageList(pageNumberInput, userId)
-    .then((value) =>
+    .then((value) => {
+      let spinningContainer = document.getElementById(
+        "loading-circle-container"
+      );
+      spinningContainer.style.setProperty("display", "none");
+
       value.forEach((element) => {
         let tempSrc = createImgSrc(element.server, element.id, element.secret);
         createAndAppend(tempSrc);
-      })
-    )
-    .catch((error) => alert("Something went wrong! " + error))
-    .finally(() =>
+      });
+    })
+
+    .then(() => {
+      console.log("something is not");
       document.querySelectorAll("section img").forEach((element, index) =>
         element.addEventListener("click", function () {
           let t = calculateToggleClass(index) + 1;
 
           this.classList.toggle("overlay-img-style-" + t);
         })
-      )
-    );
-}
+      );
+    })
+    .catch((error) => {
+      alert("Something went wrong! " + error);
+    });
 
+  gridImageContainer.innerHTML = "";
+  let spinningContainer = document.getElementById("loading-circle-container");
+  spinningContainer.style.setProperty("display", "flex");
+}
 
 //takes number of pages of photos and creates and appends the individual numbers to click on to visit other pages
 function printPageNumbers(numberOfPages) {
@@ -89,7 +101,7 @@ function printPageNumbers(numberOfPages) {
   }
 }
 
-/*Adds event listners to the arrow buttons and the change user id buttons*/ 
+/*Adds event listners to the arrow buttons and the change user id buttons*/
 function setUpButtons() {
   let buttons = document.querySelectorAll("button");
 
@@ -105,14 +117,11 @@ function setUpButtons() {
         updateImages(currentPageNumber.page, currentPageNumber.currentUserId);
       });
     } else {
+      element.addEventListener("click", function () {
+        currentPageNumber.currentUserId = document.querySelector("input").value;
 
-      element.addEventListener('click', function () {
-
-         currentPageNumber.currentUserId = document.querySelector("input").value;
-        
         updateImages(1, currentPageNumber.currentUserId);
-
-      })
+      });
     }
   });
 }
@@ -130,5 +139,7 @@ function calculateToggleClass(number) {
     return calculateToggleClass((x -= 3));
   }
 }
+
+//on loading page, to start
 setUpButtons();
 updateImages(1, "75430200%40N04");

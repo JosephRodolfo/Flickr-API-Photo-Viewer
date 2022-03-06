@@ -87,6 +87,58 @@ img {
   margin: 1em;
 }
 
+#loading-circle-container{
+  width:  5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 2.5em 0 2.5em 0;
+}
+
+
+
+.loading-circle {
+
+  background-color: $button-gray;
+  width: 4em;
+  height: 4em;
+  border-radius: 100%;
+  z-index: 4;
+  
+}
+
+.loading-circle-rectangle {
+
+  width: 5em;
+  height: 5em;
+  border-radius: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(10deg, rgba(255,255,255,0) 0%, green  100%); 
+  z-index: 3;
+  position: absolute;
+  transition: all;
+  
+
+}
+
+
+
+.spinning-loader {
+
+  animation: rotate 1s linear infinite;
+  margin: 6rem auto;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (min-width: 750px) {
   body {
     display: flex;
